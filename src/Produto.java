@@ -1,4 +1,7 @@
 public class Produto {
+    private static int  proximoId = 0;
+
+    private int id;
     private String nome;
     private String departamento;
     private String categoria;
@@ -6,6 +9,8 @@ public class Produto {
     private int quantidade;
     
     public Produto(String nome, String departamento, String categoria, double valor, int quantidade) {
+        proximoId += 1;
+        id = proximoId;
         this.nome = nome;
         this.departamento = departamento;
         this.categoria = categoria;
@@ -13,6 +18,10 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
+    public int getId() {
+    return id;
+    }
+    
     public String getNome() {
         return nome;
     }
@@ -55,6 +64,7 @@ public class Produto {
 
     public void detalharProduto(){
         System.out.println("*==========*==========*");
+        System.out.printf("Id: %d\n", this.id);
         System.out.printf("Nome: %s\n", this.nome);
         System.out.printf("Departamento: %s\n", this.departamento);
         System.out.printf("Categoria: %s\n", this.categoria);
@@ -67,6 +77,5 @@ public class Produto {
         quantidade += quantidadeEntrada;
         return quantidade;
     }
-
-
+    
 }
