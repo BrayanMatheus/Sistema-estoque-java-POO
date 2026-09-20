@@ -11,11 +11,11 @@ public class Produto {
     public Produto(String nome, String departamento, String categoria, double valor, int quantidade) {
         proximoId += 1;
         id = proximoId;
-        this.nome = nome;
-        this.departamento = departamento;
-        this.categoria = categoria;
-        this.valor = valor;
-        this.quantidade = quantidade;
+        setNome(nome);
+        setDepartamento(departamento);
+        setCategoria(categoria);
+        setValor(valor);
+        setQuantidade(quantidade);
     }
 
     public int getId() {
@@ -27,7 +27,10 @@ public class Produto {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if (nome == null || nome.trim().isEmpty()) {
+            throw new IllegalArgumentException("Nome Inválido!");
+        }
+        this.nome = nome.trim();
     }
 
     public String getDepartamento() {
@@ -35,7 +38,10 @@ public class Produto {
     }
 
     public void setDepartamento(String departamento) {
-        this.departamento = departamento;
+        if (departamento == null || departamento.trim().isEmpty()) {
+            throw new IllegalArgumentException("Departamento Inválido!");
+        }
+        this.departamento = departamento.trim();
     }
 
     public String getCategoria() {
@@ -43,7 +49,10 @@ public class Produto {
     }
 
     public void setCategoria(String categoria) {
-        this.categoria = categoria;
+        if (categoria == null || categoria.trim().isEmpty()){
+            throw new IllegalArgumentException("Categoria Inválida!");
+        }
+        this.categoria = categoria.trim();
     }
 
     public double getValor() {
@@ -51,6 +60,9 @@ public class Produto {
     }
 
     public void setValor(double valor) {
+        if (valor <= 0){
+            throw new IllegalArgumentException("Valor Inválido");
+        }
         this.valor = valor;
     }
 
@@ -59,6 +71,9 @@ public class Produto {
     }
 
     public void setQuantidade(int quantidade) {
+        if (quantidade < 0 ) {
+            throw new IllegalArgumentException("Quantidade Inválida!");
+        }
         this.quantidade = quantidade;
     }
 
@@ -71,11 +86,6 @@ public class Produto {
         System.out.printf("Valor: %.2f\n", this.valor);
         System.out.printf("Estoque: %d", this.quantidade);
         System.out.println("\n*==========*==========*");
-    }
-
-    public int addEstoque(int quantidadeEntrada){
-        quantidade += quantidadeEntrada;
-        return quantidade;
     }
     
 }

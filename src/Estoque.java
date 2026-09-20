@@ -6,24 +6,29 @@ public class Estoque {
     private ArrayList<Produto> listaProdutos = new ArrayList<>();
 
     public void cadastrarProduto(Scanner scanner){
-        System.out.print("Digite o nome do produto: ");
-        String nome = scanner.nextLine();
-        
-        System.out.print("Digite o departamento do produto: ");
-        String departamento = scanner.nextLine();
-        
-        System.out.print("Digite a categoria do produto: ");
-        String categoria = scanner.nextLine();
-        
-        System.out.print("Digite o valor do produto: ");
-        double valor = scanner.nextDouble();
-        
-        System.out.print("Digite a quantidade do produto: ");
-        int quantidade = scanner.nextInt();
+        try {
+            System.out.print("Digite o nome do produto: ");
+            String nome = scanner.nextLine();
+            
+            System.out.print("Digite o departamento do produto: ");
+            String departamento = scanner.nextLine();
+            
+            System.out.print("Digite a categoria do produto: ");
+            String categoria = scanner.nextLine();
+            
+            System.out.print("Digite o valor do produto: ");
+            double valor = scanner.nextDouble();
+            
+            System.out.print("Digite a quantidade do produto: ");
+            int quantidade = scanner.nextInt();
 
-        Produto produto = new Produto(nome, departamento, categoria, valor, quantidade);
+            Produto produto = new Produto(nome, departamento, categoria, valor, quantidade);
 
-        listaProdutos.add(produto);
+            listaProdutos.add(produto);
+        } catch (Exception e) {
+            System.err.println("\nValores inválidos");
+        }
+        
     }
     
     public void mostrarProdutos(){

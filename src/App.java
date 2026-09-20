@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 // -------------- TAREFAS --------------
-// FAZER VALIDAÇÕES NOS GETTERS / SETTERS
 // ADICIONAR MAIS METODOS NA CLASSE "ESTOQUE" COMO "ADD ESTQ" E "RMV ESTQ" E OUTROS COMO "PRECO TOTAL ESTQ" E "QNTD PROD ESTQ", ETC
 // criar um banco de dados e conectar nele
 
