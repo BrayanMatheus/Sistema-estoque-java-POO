@@ -9,13 +9,13 @@ public class Produto {
     private int quantidade;
     
     public Produto(String nome, String departamento, String categoria, double valor, int quantidade) {
-        proximoId += 1;
-        id = proximoId;
         setNome(nome);
         setDepartamento(departamento);
         setCategoria(categoria);
         setValor(valor);
         setQuantidade(quantidade);
+        
+        id = ++proximoId;
     }
 
     public int getId() {
