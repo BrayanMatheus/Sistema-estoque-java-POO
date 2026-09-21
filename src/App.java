@@ -1,8 +1,12 @@
 import java.util.Scanner;
 
 // -------------- TAREFAS --------------
-// ADICIONAR MAIS METODOS NA CLASSE "ESTOQUE" COMO "ADD ESTQ" E "RMV ESTQ" E OUTROS COMO "PRECO TOTAL ESTQ" E "QNTD PROD ESTQ", ETC
-// criar um banco de dados e conectar nele
+// CORRIGIR TRATAMENTO DE ENTRADA DE DADOS (InputMismatchException, REPETIR PERGUNTA ATÉ RECEBER UM VALOR VÁLIDO)
+// CORRIGIR GERAÇÃO DE ID( EVITAR PULAR ID QUANDO O CADASTRO FOR INVÁLIDO)
+// ADICIONAR MÉTODOS NA CLASSE "ESTOQUE"(ADICIONAR ESTOQUE, CALCULAR PREÇO TOTAL DO ESTOQUE e etc)
+// MELHORAR MÉTODO "ALTERAR PRODUTO"
+// PREPARAR O PROJETO PARA BANCO DE DADOS
+
 
 public class App {
 
@@ -37,7 +41,7 @@ public class App {
                     System.exit(0);
 
                 case 1:
-                    estoque.cadastrarProduto(scanner); // aqui está com a refatoração
+                    estoque.cadastrarProduto(scanner);
                     break;
 
                 case 2:

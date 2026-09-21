@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Estoque {
@@ -25,8 +26,10 @@ public class Estoque {
             Produto produto = new Produto(nome, departamento, categoria, valor, quantidade);
 
             listaProdutos.add(produto);
-        } catch (Exception e) {
-            System.err.println("\nValores inválidos");
+
+        } catch (IllegalArgumentException | InputMismatchException e) {
+            scanner.nextLine();
+            System.err.println("\nValores inválidos.");
         }
         
     }
@@ -41,18 +44,22 @@ public class Estoque {
 
     public void buscarProduto(Scanner scanner){
         boolean encontrado = false;
-        
-        System.out.print("Digite o ID do produto desejado: ");
-        int idBuscado = scanner.nextInt();
-
-        for (Produto produto : listaProdutos) {
-            if (produto.getId() == idBuscado) {
-                produto.detalharProduto();
-                encontrado = true;
+        try {
+            System.out.print("Digite o ID do produto desejado: ");
+            int idBuscado = scanner.nextInt();
+    
+            for (Produto produto : listaProdutos) {
+                if (produto.getId() == idBuscado) {
+                    produto.detalharProduto();
+                    encontrado = true;
+                }
             }
-        }
-        if (!encontrado) {
-            System.err.println("Produto não encotrado!");
+            if (!encontrado) {
+                System.err.println("Produto não encotrado!");
+            }
+        } catch (InputMismatchException e) {
+            scanner.nextLine();
+            System.out.println("Tipo de entrada errada!");
         }
     }
 
@@ -168,20 +175,24 @@ public class Estoque {
     }
 
     public void excluirProduto(Scanner scanner){
-        
-        System.out.print("Informe o id do produto para excluir: ");
-        int idExcluir = scanner.nextInt();
-        
-        boolean encontrado = false;
-        for (Produto produto : listaProdutos) {
-            if (produto.getId() == idExcluir) {
-                listaProdutos.remove(produto);
-                encontrado = true;
-                break;
+        try {
+            System.out.print("Informe o ID do produto para excluir: ");
+            int idExcluir = scanner.nextInt();
+            
+            boolean encontrado = false;
+            for (Produto produto : listaProdutos) {
+                if (produto.getId() == idExcluir) {
+                    listaProdutos.remove(produto);
+                    encontrado = true;
+                    break;
+                }
             }
-        }
-        if (!encontrado) {
-            System.err.println("Produto não encotrado!");
+            if (!encontrado) {
+                System.err.println("Produto não encotrado!");
+            }
+        } catch (InputMismatchException e) {
+            scanner.nextLine();
+            System.out.println("Tipo de entrada errada!");
         }
     }
 }
