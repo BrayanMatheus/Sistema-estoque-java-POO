@@ -2,32 +2,50 @@
 
 Projeto desenvolvido para **estudo e fixação dos fundamentos de Java e Programação Orientada a Objetos (POO)**.
 
-O objetivo é construir, de forma incremental, um sistema de gerenciamento de estoque, adicionando novas funcionalidades conforme o aprendizado da linguagem avança.
+O projeto consiste em um sistema de gerenciamento de estoque executado pelo console, desenvolvido de forma incremental para colocar em prática os conceitos estudados durante o aprendizado de Java.
 
-> 🚧 **Projeto em desenvolvimento** — novas funcionalidades serão adicionadas ao longo dos estudos.
+> ✅ **Projeto concluído — versão Java + POO pelo console.**
 
 ## 🎯 Objetivo
 
-Praticar conceitos fundamentais de Java e POO através da construção de um sistema de estoque funcional, trabalhando com cadastro, armazenamento e gerenciamento de produtos.
+Praticar conceitos fundamentais de Java e POO através da construção de um sistema de estoque funcional, trabalhando com cadastro, gerenciamento, alteração e controle de produtos e suas quantidades em estoque.
 
-## ⚙️ Funcionalidades atuais
+## ⚙️ Funcionalidades
+
+### 📦 Gerenciamento de produtos
 
 * [x] Cadastrar produtos
-* [x] Armazenar produtos em uma `ArrayList`
 * [x] Listar produtos cadastrados
-* [x] Exibir o nome dos produtos cadastrados
-* [x] Exibir os detalhes de um produto
-* [x] Adicionar quantidade ao estoque
+* [x] Buscar produto por ID
+* [x] Alterar informações do produto
+* [x] Excluir produto
+* [x] Exibir detalhes completos do produto
 
-### 📋 Informações armazenadas
+### 📊 Gerenciamento de estoque
+
+* [x] Adicionar quantidade ao estoque
+* [x] Remover quantidade do estoque
+* [x] Validar quantidade adicionada
+* [x] Validar quantidade removida
+* [x] Impedir remoção maior que o estoque disponível
+* [x] Permitir cancelamento da remoção através da quantidade `0`
+
+### 📈 Consultas e relatórios
+
+* [x] Calcular preço total do estoque
+* [x] Identificar produtos com estoque baixo
+* [x] Gerar relatório do estoque
+
+## 📋 Informações armazenadas
 
 Cada produto possui:
 
-* Nome
-* Departamento
-* Categoria
-* Valor
-* Quantidade em estoque
+* **ID**
+* **Nome**
+* **Departamento**
+* **Categoria**
+* **Valor**
+* **Quantidade em estoque**
 
 ## 🛠️ Tecnologias
 
@@ -38,7 +56,7 @@ Cada produto possui:
 
 ## 📚 Conceitos praticados
 
-Durante o desenvolvimento estão sendo praticados conceitos como:
+Durante o desenvolvimento foram praticados conceitos como:
 
 * Classes e objetos
 * Construtores
@@ -48,19 +66,28 @@ Durante o desenvolvimento estão sendo praticados conceitos como:
 * Métodos
 * Parâmetros
 * `ArrayList`
-* `foreach`
+* `for-each`
 * Estruturas condicionais
 * Estruturas de repetição
+* `switch`
 * Entrada de dados com `Scanner`
 * Tipos primitivos e `String`
+* `static`
+* Tratamento de exceções
+* `try/catch`
+* `InputMismatchException`
+* `IllegalArgumentException`
+* Validação de dados
+* Regras de negócio
 
-## 📁 Estrutura atual
+## 📁 Estrutura do projeto
 
 ```text
 Sistema-estoque-java-POO/
 │
 ├── src/
 │   ├── App.java
+│   ├── Estoque.java
 │   └── Produto.java
 │
 ├── .gitignore
@@ -89,24 +116,14 @@ cd Sistema-estoque-java-POO
 
 Compile e execute o projeto utilizando sua IDE ou ambiente Java de preferência.
 
-## 🚧 Próximas funcionalidades
+## 🧩 Próxima etapa
 
-O projeto continuará sendo expandido conforme novos conceitos forem estudados.
+A versão atual do projeto tem como objetivo consolidar os conhecimentos de **Java e POO utilizando o console e estruturas em memória**.
 
-Algumas funcionalidades planejadas:
-
-* [ ] Buscar produto
-* [ ] Remover produto
-* [ ] Editar produto
-* [ ] Entrada e saída de estoque
-* [ ] Exibir informações completas dos produtos
-* [ ] Validação das entradas do usuário
-* [ ] Melhor organização das responsabilidades das classes
+A próxima evolução planejada é adicionar **persistência de dados utilizando banco de dados**, substituindo gradualmente o armazenamento em `ArrayList` por dados persistidos.
 
 ## 📌 Sobre o projeto
 
-Este projeto não tem como objetivo ser, neste momento, um sistema comercial completo.
+Este projeto foi desenvolvido como **projeto de estudo**, com foco em transformar os conceitos aprendidos em Java e POO em uma aplicação prática.
 
-Ele está sendo desenvolvido como **projeto de estudo**, com foco em transformar os conceitos aprendidos em Java e POO em uma aplicação prática.
-
-A ideia é evoluir o projeto gradualmente, adicionando funcionalidades e melhorando sua estrutura conforme novos conhecimentos forem adquiridos.
+A versão atual representa a conclusão da etapa de **Java + POO pelo console**. A partir dela, o projeto poderá evoluir para uma aplicação com persistência de dados e novos conceitos de desenvolvimento.
