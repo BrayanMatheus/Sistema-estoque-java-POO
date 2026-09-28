@@ -1,21 +1,21 @@
 import java.util.Scanner;
 
 // -------------- TAREFAS --------------
-// CORRIGIR GERAÇÃO DE ID( EVITAR PULAR ID QUANDO O CADASTRO FOR INVÁLIDO)
-// ADICIONAR MÉTODOS NA CLASSE "ESTOQUE"(ADICIONAR ESTOQUE, CALCULAR PREÇO TOTAL DO ESTOQUE e etc)
-// MELHORAR MÉTODO "ALTERAR PRODUTO"
+// ADICIONAR MÉTODOS NA CLASSE "ESTOQUE"( CALCULAR PREÇO TOTAL DO ESTOQUE, mostrar estoque baixo, relatorio estoque)
 // PREPARAR O PROJETO PARA BANCO DE DADOS
 
 
 public class App {
 
     public static void exibeMenu() {
-        System.out.println("=================================================================================");
+        System.out.println("===========================================================================================");
         System.out.println("[1] Cadastrar produto");
         System.out.println("[2] Mostrar todos os produtos");
         System.out.println("[3] Buscar produto (ID)");
         System.out.println("[4] Alterar produto");
         System.out.println("[5] Excluir produto");
+        System.out.println("[6] Adiconar Estoque");
+        System.out.println("[7] Remover Estoque");
         System.out.println("[0] SAIR");
         System.out.println("\n");
         
@@ -30,7 +30,7 @@ public class App {
             exibeMenu();
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
-            System.out.println("=================================================================================");
+            System.out.println("===========================================================================================");
             scanner.nextLine();
 
 
@@ -57,6 +57,14 @@ public class App {
 
                 case 5:
                     estoque.excluirProduto(scanner);
+                    break;
+                
+                case 6:
+                    estoque.AddEstoque(scanner);
+                    break;
+                
+                case 7:
+                    estoque.RmvEstoque(scanner);
                     break;
 
                 default:

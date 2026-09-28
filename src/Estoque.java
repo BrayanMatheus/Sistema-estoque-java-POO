@@ -195,4 +195,82 @@ public class Estoque {
             System.out.println("Tipo de entrada errada!");
         }
     }
+
+    public void AddEstoque(Scanner scanner){
+        boolean encontrado = false;
+        try {
+            System.out.print("Digite o ID do produto para adicionar estoque: ");
+            int idBuscado = scanner.nextInt();
+    
+            for (Produto produto : listaProdutos) {
+                if (produto.getId() == idBuscado) {
+                    boolean aprovado = false;
+                    while (!aprovado) {
+                        System.out.print("Digite a quantidade para adicionar no estoque: ");
+                        int quantidadeAdd = scanner.nextInt();
+                        if (quantidadeAdd <= 0) {
+                            System.out.println("Digite uma quantidade maior que zero!");
+                        }
+                        else{
+                            int totalAtual = produto.getQuantidade();
+                            produto.setQuantidade(totalAtual + quantidadeAdd);
+                            System.out.printf("quantidade atual no estoque: %d\n", produto.getQuantidade());
+                            aprovado = true;
+                        }   
+                    }
+                    encontrado = true;
+                    break;
+                }
+            }
+            if (!encontrado) {
+                System.err.println("Produto não encontrado!");
+            }
+        } catch (InputMismatchException e) {
+            scanner.nextLine();
+            System.out.println("Tipo de entrada errada!");
+        }
+    }
+
+    public void RmvEstoque(Scanner scanner){
+        boolean encontrado = false;
+        try {
+            System.out.print("Digite o ID do produto para remover estoque: ");
+            int idBuscado = scanner.nextInt();
+    
+            for (Produto produto : listaProdutos) {
+                if (produto.getId() == idBuscado) {
+                    boolean aprovado = false;
+                    while (!aprovado) {
+                        System.out.print("Digite a quantidade para remover do estoque: ");
+                        int quantidadeRmv = scanner.nextInt();
+                        if (quantidadeRmv > produto.getQuantidade()) {
+                            System.out.println("Digite uma quantidade menor que o estoque atual!");
+                        }
+                        else if (quantidadeRmv < 0) {
+                            System.out.println("Digite uma quantidade maior que zero!");
+                        }
+                        else if (quantidadeRmv == 0) {
+                            System.out.println("Nenhum produto retirado!");
+                            break;
+                        }
+                        else{
+                            int totalAtual = produto.getQuantidade();
+                            produto.setQuantidade(totalAtual - quantidadeRmv);
+                            System.out.printf("quantidade atual no estoque: %d\n", produto.getQuantidade());
+                            aprovado = true;
+                        }   
+                    }
+                    encontrado = true;
+                    break;
+                }
+            }
+            if (!encontrado) {
+                System.err.println("Produto não encontrado!");
+            }
+        } catch (InputMismatchException e) {
+            scanner.nextLine();
+            System.out.println("Tipo de entrada errada!");
+        }
+    }    
+
 }
